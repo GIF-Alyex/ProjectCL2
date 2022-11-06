@@ -1,15 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "definition.h"
-#include "definition.c"
 
-/*
 
-p_def def_ver(char * def){
+
+p_def createDef(char * def){
     p_def def_word;
     int cmt = 0;
     int i = 4;
     int j;
+
+    if((def[0] == 'A' && def[1] == 'd' && def[2] == 'j') || (def[0] == 'N' && def[1] == 'o' && def[2] == 'm')){
+        if((def[0] == 'A' && def[1] == 'd' && def[2] == 'j')){
+            def_word->adj = 1;
+            def_word->adv = def_word->ver = def_word->nom = 0; 
+        }
+        else{
+            def_word->nom = 1;
+            def_word->adv = def_word->ver = def_word->adj = 0;
+        }
+        if(def[4] == 'M'){
+            def_word->masc = 1;
+            def_word->fem = 0;
+            if(def[8] == 'S'){
+                def_word->nb = 0;
+            }
+            else{
+                def_word->nb = 1;
+            }
+        }
+        else if (def[4] == 'F'){
+            def_word->fem = 1;
+            def_word->masc = 0;
+            if(def[8] == 'S'){
+                def_word->nb = 0;
+            }
+            else{
+                def_word->nb = 1;
+            }
+        }
+        else{
+            def_word->masc = def_word->fem = 0;
+            if(def[11] ==  'S'){
+                def_word->nb = 0;
+            }
+            else{
+                def_word->nb = 1;
+            }
+        }
+    }
+
+
+    else if (def[0] == 'A' && def[1] == 'd' && def[2] == 'v'){
+        def_word->adv = 1;
+        def_word->adj = def_word->nom = def_word->ver = def_word->masc = def_word->fem = def_word->nb = 0;
+    }
+
+
     if ((def[0] == 'V' && def[1] == 'e' && def[2] == 'r') && ( (def[4] == 'I' && ( (def[5] == 'n' && def[6] == 'f') || (def[5] == 'I' && def[6] == 'm' && def[7] == 'p') || (def[5] == 'P' && def[6] == 'r' && def[7] == 'e') ) ) || (def[4] == 'S' && def[5] == 'P' && def[6] == 'r' && def[7] == 'e') ) ){
         if (def[4] == 'I' && def[5] == 'n' && def[6] == 'f'){
             def_word->ver == 1;
@@ -44,40 +91,8 @@ p_def def_ver(char * def){
     else{
         def_word->ver = def_word->adj = def_word->nom = def_word->adv = def_word->masc = def_word->fem = def_word->nb = 0;
     }
+
+        
     return def_word;
-
 }
 
-*/
-
-
-int main(){
-
-    FILE *fic = fopen("dictionnaire_non_accentue.txt", "r");
-
-    char flechie[30];
-    char base[30];
-    char def[100];
-    p_def definition;
-
-
-    while (!feof(fic)){
-        fscanf(fic,"%s %s %s", flechie, base, def);
-        printf("flechie : %s\n",flechie);
-        printf("base : %s\n",base);
-        printf("def : %s\n",def);
-        definition = createDef(def);
-        printf("%d\n",definition->adj);
-        printf("%d\n",definition->ver);
-        printf("%d\n",definition->nom);
-        printf("%d\n",definition->adv);
-        printf("%d\n",definition->masc);
-        printf("%d\n",definition->fem);
-        printf("%d\n",definition->nb);
-    }
-    
-    fclose(fic);
-
-
-    return 0;
-}
