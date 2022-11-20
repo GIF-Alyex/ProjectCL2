@@ -516,7 +516,7 @@ int main(){
 
     int choice=0;
     while(choice==0){
-        printf("Bienvenue dans le générateur de phrase:\nQue voulez-vous faire ?\n1) Générer des phrases aléatoirement selon un modèle\n2) Rechercher un mot parmis les formes de base du dictionnaire (test de mots pour l'instant)\n3) Extraire une forme de base au hasard\n4) Quitter\n");
+        printf("Bienvenue dans le générateur de phrase:\nQue voulez-vous faire ?\n1) Générer des phrases aléatoirement selon un modèle\n2) Quitter\n");
         scanf("%d",&choice);
         if (choice==1){
             printf("\n");
@@ -576,17 +576,10 @@ int main(){
                 }
             }
         }
-
-        if (choice==2){
-            choice = 0;
-        }
-        if (choice==3){
-            choice = 0;
-        }
-        if (choice == 4){
+        if (choice == 2){
             printf("Vous sortez du programme !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
         }
-        if (0>choice || choice>4){
+        if (0>choice || choice>2){
             printf("\n");
             printf("\n");
             printf("\n");
