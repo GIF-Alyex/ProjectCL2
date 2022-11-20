@@ -24,14 +24,16 @@ struct s_definition{
     int nb; // 0 pour singulier et !=0 sinon
     int masc;
     int fem;
+    char * flechie;
+    char * base;
 
 };
 
 typedef struct s_definition t_def, *p_def;
 
-// char * def_type(char *);
-p_def createDef(char *);
-
+/*
+p_def createDef(char *, char *, char *);
+*/
 
 #endif //PROJET_C_GAP_DEFINITION_H
 
