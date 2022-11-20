@@ -5,6 +5,7 @@
 
 
 #include "node.h"
+#include "definition.h"
 
 
 
@@ -15,9 +16,12 @@ typedef struct s_tree
 } t_tree, *p_tree;
 
 
+/*
 t_tree creation_arbre();
 
-t_tree arbre_des_mots(t_tree, char *);
+void arbre_des_mots(t_tree, char *, char *, char *);
 
+void free_tree(t_tree arbre);
+*/
 
 #endif
