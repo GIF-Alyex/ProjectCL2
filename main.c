@@ -473,7 +473,7 @@ char flech[30];
 
 int main(){
 
-    FILE *fic = fopen("minidico.txt", "r");
+    FILE *fic = fopen("dico.txt", "r");
 
     char flech[30];
     char bas[30];
